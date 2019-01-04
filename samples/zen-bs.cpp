@@ -1,6 +1,7 @@
 #include <string>
 #include "BsApplication.h"
 #include "BsFPSCamera.h"
+#include "BsFPSLogger.h"
 #include <assert.h>
 #include <BsZenLib/ImportZEN.hpp>
 #include <Components/BsCCamera.h>
@@ -75,6 +76,7 @@ int main(int argc, char** argv)
   // Add a scene object containing a camera component
   HSceneObject sceneCameraSO = SceneObject::create("SceneCamera");
   HCamera sceneCamera = sceneCameraSO->addComponent<CCamera>();
+  sceneCameraSO->addComponent<FPSLogger>();
   sceneCamera->setMain(true);
   sceneCamera->setMSAACount(1);
 

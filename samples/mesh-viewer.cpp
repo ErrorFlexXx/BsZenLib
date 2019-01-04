@@ -2,6 +2,7 @@
 #include "BsApplication.h"
 #include "BsFPSCamera.h"
 #include "BsObjectRotator.h"
+#include "BsFPSLogger.h"
 #include <assert.h>
 #include <BsZenLib/ImportSkeletalMesh.hpp>
 #include <BsZenLib/ImportStaticMesh.hpp>
@@ -23,7 +24,6 @@
 #include <zenload/zCProgMeshProto.h>
 
 using namespace bs;
-
 
 /** Registers a common set of keys/buttons that are used for controlling the examples. */
 static void setupInputConfig()
@@ -103,6 +103,7 @@ int main(int argc, char** argv)
   // Add a scene object containing a camera component
   HSceneObject sceneCameraSO = SceneObject::create("SceneCamera");
   HCamera sceneCamera = sceneCameraSO->addComponent<CCamera>();
+  sceneCameraSO->addComponent<FPSLogger>();
   sceneCamera->setMain(true);
   sceneCamera->setMSAACount(1);
 

@@ -2,6 +2,7 @@
 #include "BsApplication.h"
 #include "BsFPSCamera.h"
 #include "BsObjectRotator.h"
+#include "BsFPSLogger.h"
 #include <assert.h>
 #include <BsZenLib/ImportStaticMesh.hpp>
 #include <BsZenLib/ImportZEN.hpp>
@@ -59,7 +60,7 @@ int main(int argc, char** argv)
 
   if (argc < 2)
   {
-    std::cout << "Usage: mesh-viewer <path/to/gothic/data>" << std::endl;
+    std::cout << "Usage: npc-viewer <path/to/gothic/data>" << std::endl;
     return -1;
   }
 
@@ -77,11 +78,12 @@ int main(int argc, char** argv)
   }
 
   VideoMode videoMode(1280, 720);
-  Application::startUp(videoMode, "mesh-viewer", false);
+  Application::startUp(videoMode, "npc-viewer", false);
 
   // Add a scene object containing a camera component
   HSceneObject sceneCameraSO = SceneObject::create("SceneCamera");
   HCamera sceneCamera = sceneCameraSO->addComponent<CCamera>();
+  sceneCameraSO->addComponent<FPSLogger>();
   sceneCamera->setMain(true);
   sceneCamera->setMSAACount(1);
 

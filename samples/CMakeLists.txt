@@ -28,3 +28,11 @@ add_executable(npc-viewer
 
 target_link_libraries(npc-viewer PRIVATE bsf)
 target_link_libraries(npc-viewer PRIVATE BsZenLib)
+
+add_executable(clear-scene
+  clear-scene.cpp
+  BsFPSLogger.cpp
+  )
+  
+target_link_libraries(clear-scene PRIVATE bsf)
+  
